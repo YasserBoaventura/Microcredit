@@ -1,0 +1,6 @@
+package com.Microcredito.enums;
+
+public enum TipoDocumento {
+	
+ PASSAPORT,CPF, CNPJ, RG, COMPROVANTE_RENDA, COMPROVANTE_RESIDENCIA, CONTRATO_SOCIAL, IDENTIDADE
+}
