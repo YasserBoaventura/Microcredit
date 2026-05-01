@@ -23,14 +23,18 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+import jakarta.persistence.Index;
+import jakarta.persistence.Table;
 @Entity
-
-
+@Table(name = "parcela", indexes = {
+    @Index(name = "idx_parcela_contrato", columnList = "contrato_id"),
+    @Index(name = "idx_parcela_vencimento", columnList = "data_vencimento"),
+    @Index(name = "idx_parcela_status", columnList = "status")
+})
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Data
 public class Parcela {
 
     

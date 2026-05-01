@@ -79,8 +79,7 @@ public class Contrato {
     
  
     @Column(name = "ip_assinatura", length = 45) // IPv6 suporta até 45 caracteres
-    private String ipAssinatura; // Ex: "192.168.1.1" ou "2001:0db8:85a3:0000:0000:8a2e:0370:7334"
-    
+    private String ipAssinatura; 
     @Column(name = "user_agent", columnDefinition = "TEXT")
     private String userAgent;
     
@@ -98,6 +97,6 @@ public class Contrato {
     public void addParcela(Parcela parcela) {
         parcelas.add(parcela);
         parcela.setContrato(this);
-    }
+    } 
 
 }

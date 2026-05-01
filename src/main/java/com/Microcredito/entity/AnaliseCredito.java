@@ -24,7 +24,7 @@ import lombok.Data;
 @Builder 
 public class AnaliseCredito {
 	 
-    @Id
+    @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     

@@ -29,10 +29,20 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import jakarta.persistence.*; 
+import org.hibernate.*;
+
+
+@Entity 
+@Table(name = "cliente", indexes = {
+    @Index(name = "idx_cliente_cpf_cnpj", columnList = "cpfCnpj"),
+    @Index(name = "idx_cliente_email", columnList = "email")
+})
+@Data
+@NoArgsConstructor
 @AllArgsConstructor
-@Builder
-@Entity
-@Table(name ="cliente")
+@Builder  
 public class Cliente {
     
     @Id

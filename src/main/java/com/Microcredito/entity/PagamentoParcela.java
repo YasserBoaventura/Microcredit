@@ -38,7 +38,7 @@ public class PagamentoParcela {
 	    private BigDecimal amortizacao;
 	    
 	    @Column(name = "juros", precision = 10, scale = 2)
-	    private BigDecimal juros;
+	    private BigDecimal juros; 
 	    
 	    @Column(name = "multa", precision = 10, scale = 2)
 	    private BigDecimal multa;

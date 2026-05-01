@@ -21,15 +21,24 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-
+import jakarta.persistence.Index;
 @Entity
-@Table(name ="solicitacao_credito")
-@Data 
+@Table(name = "solicitacao_credito", indexes = {
+    @Index(name = "idx_solicitacao_cliente", columnList = "cliente_id"),
+    @Index(name = "idx_solicitacao_status", columnList = "status")
+})
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class SolicitacaoCredito {
 
-	   @Id
+	    @Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private Long id;
 	    

@@ -23,7 +23,7 @@ import jakarta.persistence.Table;
 @Table(name ="Documento")
 public class Documento {
 
-	@Id
+	@Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
