@@ -55,6 +55,9 @@ public class Pagamento  implements Serializable{
     @Column(name = "valor_total_pago", nullable = false, precision = 12, scale = 2)
     private BigDecimal valorTotalPago;
     
+    @ManyToOne
+    @JoinColumn(name = "parcela_id")
+    private Parcela parcela; 
     @CreationTimestamp
     @Column(name = "data_pagamento", updatable = false)
     private LocalDateTime dataPagamento;

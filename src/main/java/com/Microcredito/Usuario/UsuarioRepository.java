@@ -1,7 +1,7 @@
-package repository;
+package com.Microcredito.Usuario;
 
 import java.time.LocalDateTime;
-import java.util.*;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -12,9 +12,8 @@ import org.springframework.stereotype.Repository;
 
 import com.Microcredito.auth.Usuario;
 import com.Microcredito.enums.RoleUsuario;
-
 @Repository
-public interface UsuarioRepository extends JpaRepository<Usuario, Long>{
+public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
 
     Optional<Usuario> findByEmail(String email);
@@ -30,9 +29,15 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long>{
     @Modifying
     @Query("UPDATE Usuario u SET u.tentativasLogin = 0, u.bloqueadoAte = null WHERE u.email = :email")
     void resetarTentativasLogin(@Param("email") String email);
-    
+   
     @Modifying
     @Query("UPDATE Usuario u SET u.bloqueadoAte = :bloqueio WHERE u.email = :email")
     void bloquearUsuario(@Param("email") String email, @Param("bloqueio") LocalDateTime bloqueio);
-}
+
+    @Modifying
+    @Query("UPDATE Usuario u SET u.ultimoLogin = CURRENT_TIMESTAMP WHERE u.id = :id")
+    void updateUltimoLogin(Long id);}
+
+
+	
 

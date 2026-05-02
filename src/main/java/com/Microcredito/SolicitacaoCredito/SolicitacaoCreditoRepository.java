@@ -18,7 +18,7 @@ import com.Microcredito.enums.StatusSolicitacao;
 @Repository
 public interface SolicitacaoCreditoRepository extends JpaRepository<SolicitacaoCredito, Long> {
 
-List<SolicitacaoCredito> findByClienteId(Long clienteId);
+ List<SolicitacaoCredito> findByClienteId(Long clienteId);
 
 List<SolicitacaoCredito> findByStatus(StatusSolicitacao status);
 
@@ -27,7 +27,7 @@ Page<SolicitacaoCredito> findByStatusOrderByDataSolicitacaoDesc(StatusSolicitaca
 @Query("SELECT s FROM SolicitacaoCredito s WHERE s.analista.id = :analistaId AND s.status = :status")
 List<SolicitacaoCredito> findByAnalistaAndStatus(@Param("analistaId") Long analistaId, 
                                                   @Param("status") StatusSolicitacao status);
-
+ 
 @Query("SELECT s FROM SolicitacaoCredito s WHERE s.dataSolicitacao BETWEEN :inicio AND :fim")
 List<SolicitacaoCredito> findByDataSolicitacaoBetween(@Param("inicio") LocalDateTime inicio, 
                                                        @Param("fim") LocalDateTime fim);

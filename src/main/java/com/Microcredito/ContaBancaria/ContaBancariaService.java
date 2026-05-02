@@ -19,4 +19,4 @@ public class ContaBancariaService {
     public void deleteById(Long id) { repository.deleteById(id); }
     public List<ContaBancaria> findByClienteId(Long clienteId) { return repository.findByClienteId(clienteId);
 } 
-}
+}   

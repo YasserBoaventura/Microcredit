@@ -18,7 +18,7 @@ public interface ParcelaRepository extends JpaRepository<Parcela, Long> {
 	    List<Parcela> findByContratoIdAndStatus(Long contratoId, StatusParcela status);
 	    @Query("SELECT p FROM Parcela p WHERE p.dataVencimento < :data AND p.status = 'PENDENTE'")
 	    List<Parcela> findParcelasVencidas(LocalDate data);
-	    @Modifying 
+	    @Modifying  
 	    @Query("UPDATE Parcela p SET p.status = 'VENCIDO' WHERE p.id = :id")
 	    void marcarComoVencida(Long id); 
 	    @Query("SELECT SUM(p.valorOriginal) FROM Parcela p WHERE p.contrato.id = :contratoId AND p.status = :status")

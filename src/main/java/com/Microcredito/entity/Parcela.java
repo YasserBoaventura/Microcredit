@@ -25,7 +25,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import jakarta.persistence.Index;
 import jakarta.persistence.Table;
-@Entity
+@Entity 
 @Table(name = "parcela", indexes = {
     @Index(name = "idx_parcela_contrato", columnList = "contrato_id"),
     @Index(name = "idx_parcela_vencimento", columnList = "data_vencimento"),
