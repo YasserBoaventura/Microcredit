@@ -22,8 +22,8 @@ public class ClienteService {
 	    public boolean existsById(Long id) { return repository.existsById(id); }
 	    public List<Cliente> findAll() { return repository.findAll(); }
 	    public Page<Cliente> findAll(Pageable pageable) { return repository.findAll(pageable); }
-	    public void deleteById(Long id) { repository.deleteById(id); }
-	    public void delete(Cliente entity) { repository.delete(entity); }
+	    public String deleteById(Long id) { repository.deleteById(id); return "cliente iliminado com sucesso";}
+	    public String delete(Cliente entity) { repository.delete(entity); return "cliente iliminado com sucesso"; }
 	    public void deleteAll() { repository.deleteAll(); }
 	    public long count() { return repository.count(); }
 	    public Cliente findByCpfCnpj(String cpf) { return repository.findByCpfCnpj(cpf).orElse(null); }

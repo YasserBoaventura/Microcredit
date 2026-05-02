@@ -65,7 +65,7 @@ public class Usuario implements UserDetails {
     private LocalDateTime dataCriacao;
     
 	@Override
-	@JsonIgnore
+	@JsonIgnore 
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		List<GrantedAuthority> authorities = new ArrayList<>();
 		authorities.add(new SimpleGrantedAuthority(this.role));

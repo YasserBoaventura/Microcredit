@@ -8,5 +8,6 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping
 @RequiredArgsConstructor
 public class AnaliseCreditoController {
+	
 
 }
