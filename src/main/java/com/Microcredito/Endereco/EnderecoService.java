@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.Microcredito.Cliente.ClienteRepository;
+import com.Microcredito.DTO.EnderecoDTO;
 import com.Microcredito.entity.Cliente;
 import com.Microcredito.entity.Endereco;
 
-import DTO.EndercoDTO;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
@@ -19,7 +19,7 @@ public class EnderecoService {
     private final ClienteRepository clienteRepository;
     
     @Transactional
-    public Endereco save(EndercoDTO dto) {
+    public Endereco save(EnderecoDTO dto) {
 
 Cliente cliente = clienteRepository.findById(dto.getClienteId())
         .orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
@@ -39,7 +39,7 @@ Cliente cliente = clienteRepository.findById(dto.getClienteId())
 	        return repository.save(endereco);
 	    }
     @Transactional
-    public Endereco atualizar(Long id, EndercoDTO dto) {
+    public Endereco atualizar(Long id, EnderecoDTO dto) {
  
     Endereco endereco = repository.findById(id)
             .orElseThrow(() -> new RuntimeException("Endereço não encontrado"));

@@ -7,6 +7,8 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import com.Microcredito.auth.Usuario;
 import com.Microcredito.enums.StatusSolicitacao;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -44,6 +46,7 @@ public class SolicitacaoCredito {
 	    
 	    @ManyToOne(fetch = FetchType.LAZY)
 	    @JoinColumn(name = "cliente_id", nullable = false)
+	    @JsonIgnore
 	    private Cliente cliente;
 	    
 	    @Column(name = "valor_solicitado", nullable = false, precision = 12, scale = 2)
@@ -54,6 +57,9 @@ public class SolicitacaoCredito {
 	    
 	    @Column(name = "quantidade_parcelas", nullable = false)
 	    private Integer quantidadeParcelas;
+	    
+	    @Column(name ="prozo_Meses")
+	    private Integer prazoMeses;
 	    
 	    @Column(name = "taxa_juros_mensal", precision = 5, scale = 4)
 	    private BigDecimal taxaJurosMensal;
@@ -74,6 +80,7 @@ public class SolicitacaoCredito {
 	    
 	    @ManyToOne(fetch = FetchType.LAZY)
 	    @JoinColumn(name = "analista_id")
+	    @JsonIgnore
 	    private Usuario analista;
 	    
 	    @Column(name = "motivo_reprovacao", columnDefinition = "TEXT")
@@ -84,9 +91,11 @@ public class SolicitacaoCredito {
 	    
 	    // Relacionamentos
 	    @OneToOne(mappedBy = "solicitacao", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	    @JsonIgnore
 	    private AnaliseCredito analiseCredito;
 	    
 	    @OneToOne(mappedBy = "solicitacao", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	    @JsonIgnore
 	    private Contrato contrato;
 		
 }

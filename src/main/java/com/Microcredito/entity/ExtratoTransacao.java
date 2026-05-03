@@ -7,6 +7,8 @@ import java.time.LocalDateTime;
 import org.hibernate.annotations.CreationTimestamp;
 
 import com.Microcredito.enums.TipoTransacao;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -40,6 +42,7 @@ public class ExtratoTransacao implements Serializable{
 	    
 	    @ManyToOne(fetch = FetchType.LAZY)
 	    @JoinColumn(name = "contrato_id", nullable = false)
+	    @JsonIgnore
 	    private Contrato contrato;
 	    
 	    @Enumerated(EnumType.STRING)
@@ -64,5 +67,6 @@ public class ExtratoTransacao implements Serializable{
 	    
 	    @Column(name = "referencia_tipo", length = 50)
 	    private String referenciaTipo; // PARCELA, PAGAMENTO, AJUSTE
-	
+
+		
 }

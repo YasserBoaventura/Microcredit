@@ -17,10 +17,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.Microcredito.DTO.SolicitacaoCreditoDTO;
 import com.Microcredito.entity.SolicitacaoCredito;
 import com.Microcredito.enums.StatusSolicitacao;
 
-import DTO.SolicitacaoCreditoDTO;
+
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -33,7 +34,7 @@ public class SolicitacaoCreditoController {
     public ResponseEntity<SolicitacaoCredito> create(@RequestBody SolicitacaoCreditoDTO entity) {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.save(entity));
     }
-    
+           
     @GetMapping("/findAll")
     public ResponseEntity<List<SolicitacaoCredito>> findAll() {
         return ResponseEntity.ok(service.findAll());

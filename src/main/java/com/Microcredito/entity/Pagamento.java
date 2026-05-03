@@ -11,6 +11,7 @@ import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
 import com.Microcredito.enums.MetodoPagamento;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -50,6 +51,7 @@ public class Pagamento  implements Serializable{
     
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "contrato_id", nullable = false)
+   @JsonIgnore
     private Contrato contrato;
     
     @Column(name = "valor_total_pago", nullable = false, precision = 12, scale = 2)
@@ -57,6 +59,7 @@ public class Pagamento  implements Serializable{
     
     @ManyToOne
     @JoinColumn(name = "parcela_id")
+    @JsonIgnore
     private Parcela parcela; 
     @CreationTimestamp
     @Column(name = "data_pagamento", updatable = false)
@@ -74,7 +77,7 @@ public class Pagamento  implements Serializable{
     
     @Column(name = "status_pagamento", length = 20)
     private com.Microcredito.enums.statusPagamento statusPagamento; // PENDING, CONFIRMED, FAILED, REFUNDED
-     
+      
     @Column(name = "codigo_autorizacao", length = 50)
     private String codigoAutorizacao;
     
@@ -83,6 +86,7 @@ public class Pagamento  implements Serializable{
     
     // Relacionamento com parcelas
     @OneToMany(mappedBy = "pagamento", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<PagamentoParcela> pagamentoParcelas = new ArrayList<>();
 }
 

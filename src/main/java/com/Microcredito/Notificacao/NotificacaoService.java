@@ -19,5 +19,5 @@ private final NotificacaoRepository repository;
     public List<Notificao> findAll() { return repository.findAll(); }
     public void deleteById(Long id) { repository.deleteById(id); }
     public void marcarComoLida(Long id) { repository.marcarComoLida(id); }
-
+ 
 } 

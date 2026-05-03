@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import org.hibernate.annotations.CreationTimestamp;
 
 import com.Microcredito.auth.Usuario;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -18,10 +19,10 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data 
-@Builder 
 public class AnaliseCredito {
 	 
     @Id 
@@ -30,8 +31,9 @@ public class AnaliseCredito {
     
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "solicitacao_id", unique = true, nullable = false)
+    @JsonManagedReference
     private SolicitacaoCredito solicitacao;
-    
+       
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "analista_id", nullable = false)
     private Usuario analista;

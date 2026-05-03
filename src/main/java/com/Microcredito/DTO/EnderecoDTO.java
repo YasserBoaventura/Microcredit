@@ -1,16 +1,10 @@
-package DTO;
+package com.Microcredito.DTO;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor 
-public class EndercoDTO {
-	    private Long clienteId;
+@Data 
+public class EnderecoDTO {
+	  private Long clienteId;
 	    private String cep;
 	    private String logradouro;
 	    private String numero;
@@ -20,6 +14,5 @@ public class EndercoDTO {
 	    private String estado;
 	    private String tipoEndereco;
 	    private Boolean principal;
-
 
 }

@@ -58,6 +58,8 @@ public class Parcela {
     @Column(name = "valor_juros_multa", precision = 10, scale = 2)
     private BigDecimal valorJurosMulta = BigDecimal.ZERO;
     
+    @Column(name ="valor_parcela") 
+    private BigDecimal valorParcela; 
     @Column(name = "data_vencimento", nullable = false)
     private LocalDate dataVencimento;
     

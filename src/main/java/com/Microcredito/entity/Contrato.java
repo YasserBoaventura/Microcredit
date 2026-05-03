@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.Microcredito.enums.StatusContrato;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -34,10 +36,12 @@ public class Contrato {
     
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "solicitacao_id", unique = true, nullable = false)
+    @JsonIgnore
     private SolicitacaoCredito solicitacao;
     
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cliente_id", nullable = false)
+    @JsonIgnore
     private Cliente cliente;
     
     @Column(name = "numero_contrato", unique = true, nullable = false, length = 50)

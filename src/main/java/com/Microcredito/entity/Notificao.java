@@ -6,6 +6,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import com.Microcredito.auth.Usuario;
 import com.Microcredito.enums.TipoNotificaco;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -40,10 +41,12 @@ public class Notificao {
 	    
 	    @ManyToOne(fetch = FetchType.LAZY)
 	    @JoinColumn(name = "usuario_id")
+	    @JsonManagedReference
 	    private Usuario usuario;
 	    
 	    @ManyToOne(fetch = FetchType.LAZY)
 	    @JoinColumn(name = "cliente_id")
+	    @JsonManagedReference
 	    private Cliente cliente;
 	    
 	    @Enumerated(EnumType.STRING)

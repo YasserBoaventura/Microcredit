@@ -13,9 +13,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.Microcredito.DTO.EnderecoDTO;
 import com.Microcredito.entity.Endereco;
 
-import DTO.EndercoDTO;
+
 import lombok.RequiredArgsConstructor;
 @RestController 
 @RequestMapping("/api/Endereco")
@@ -24,11 +25,11 @@ public class EnderecoController {
     private final EnderecoService service;
     
     @PostMapping("/save")
-    public ResponseEntity<Endereco> create(@RequestBody EndercoDTO entity) {
+    public ResponseEntity<Endereco> create(@RequestBody EnderecoDTO entity) {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.save(entity));
     }
     
-    @GetMapping("/findAll")
+    @GetMapping("/findAll") 
     public ResponseEntity<List<Endereco>> findAll() {
         return ResponseEntity.ok(service.findAll());
     } 
@@ -44,7 +45,7 @@ public class EnderecoController {
     }
     
     @PutMapping("/update/{id}")
-    public ResponseEntity<Endereco> update(@PathVariable Long id, @RequestBody EndercoDTO entity) {
+    public ResponseEntity<Endereco> update(@PathVariable Long id, @RequestBody EnderecoDTO entity) {
        return ResponseEntity.ok(service.atualizar(id,entity));
     }  
      
