@@ -39,7 +39,7 @@ Contrato contrato = contratoRepository.findById(dto.getContratoId())
                 .orElseThrow(() -> new RuntimeException("Parcela não encontrada"));
     }
 
-    Pagamento pagamento = new Pagamento();
+   Pagamento pagamento = new Pagamento();
     pagamento.setContrato(contrato);
     pagamento.setParcela(parcela);
     pagamento.setValorTotalPago(dto.getValorTotalPago());

@@ -17,6 +17,6 @@ public class ParcelaService {
     public Parcela save(Parcela entity) { return repository.save(entity); }
     public Parcela findById(Long id) { return repository.findById(id).orElseThrow(); }
     public List<Parcela> findAll() { return repository.findAll(); }
-    public void deleteById(Long id) { repository.deleteById(id); }
+   
     public List<Parcela> findByContratoId(Long contratoId) { return repository.findByContratoId(contratoId); }
 }
